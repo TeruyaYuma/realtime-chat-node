@@ -1,0 +1,15 @@
+version: "3.4"
+services:
+  realtime-chat-compose:
+    image: realtime-chat-node/base-build
+    container_name: realtime-chat-node-container
+    restart: always
+    ports:
+      - 3030:${PORT}
+    tty: true
+    stdin_open: true
+    volumes:
+      - node-modules-data:/src/node_modules
+
+volumes:
+  node-modules-data:

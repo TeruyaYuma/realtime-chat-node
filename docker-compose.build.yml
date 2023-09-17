@@ -1,0 +1,10 @@
+version: "3.4"
+services:
+  base:
+    build:
+      context: ./
+      dockerfile: ./.docker/Dockerfile
+      target: base
+      args:
+        - env=${ENV}
+    image: realtime-chat-node/base-build
