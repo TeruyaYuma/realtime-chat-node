@@ -1,5 +1,5 @@
 build:
-	docker-compose -f docker-compose.build.yml build base
+	docker-compose -f docker-compose.build.yml build base db
 
 up:
 	docker-compose up -d

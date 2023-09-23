@@ -8,3 +8,10 @@ services:
       args:
         - env=${ENV}
     image: realtime-chat-node/base-build
+
+  db:
+    build:
+      context: ./
+      dockerfile: ./pql/Dockerfile
+      target: db
+    image: my_postgres

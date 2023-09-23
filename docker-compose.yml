@@ -10,6 +10,21 @@ services:
     stdin_open: true
     volumes:
       - node-modules-data:/src/node_modules
+    networks:
+      - backend
+    depends_on:
+      - db
+
+  db:
+    image: my_postgres 
+    container_name: my_db
+    ports:
+      - 5433:5432
+    networks:
+      - backend
 
 volumes:
   node-modules-data:
+
+networks:
+  backend:
