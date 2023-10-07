@@ -1,0 +1,19 @@
+name: Test Workflow
+on:
+  push:
+    tags:
+      - "test-*"
+
+env:
+  TEST_ENV: "test"
+
+jobs:
+  test_flow:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout tagged branch
+        uses: actions/checkout@v3
+
+      - name: echo environment
+        run: |
+          echo ${{ env.TEST_ENV}}
