@@ -1,9 +1,8 @@
 import { Router } from 'express'
+import actions from '../../actions/index.js'
 
 const router = Router()
-
-router.get('/', (req, res) => {
-  res.status(200).json({ status: "OK" })
-})
+const { rootActions } = actions
+router.get('/', rootActions)
 
 export default router
