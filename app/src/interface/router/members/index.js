@@ -2,8 +2,8 @@ import { Router } from 'express'
 import actions from '../../actions/index.js'
 
 const router = Router()
-const { rootActions } = actions
+const { membersActions } = actions
 
-router.get('/', rootActions)
+router.get('/', membersActions)
 
 export default router
