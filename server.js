@@ -1,8 +1,17 @@
 'use strict';
  
 import express  from 'express'
+import * as io from "socket.io"
+import { createServer } from 'http'
 import router from "./app/src/interface/router/index.js"
+
 const app = express();
+const server = createServer(app); 
+const socketio = new io.Server(server);
+
+socketio.on("connection", (socket) => {
+  console.log('soketIo connection')
+})
 
 // const { Sequelize } = require('sequelize');
 
@@ -35,8 +44,6 @@ app.use(router)
   //     }
   //   )
 
- 
-
-app.listen(PORT, HOST, () => {
+server.listen(PORT, HOST, () => {
   console.log(`Running on http://${HOST}:${PORT}`);
 });
