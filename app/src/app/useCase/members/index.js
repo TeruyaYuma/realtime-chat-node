@@ -1,6 +1,11 @@
 import pkg from "pg"
 const { Client } = pkg
-// PostgreSQL connect info
+
+/**
+ * TODO：modelとrepositoryは切り出す
+ */
+
+// model
 const client = new Client({
   user: "postgres",
   host: "my_db",
