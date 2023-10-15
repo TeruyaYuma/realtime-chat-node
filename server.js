@@ -7,7 +7,12 @@ import router from "./app/src/interface/router/index.js"
 
 const app = express();
 const server = createServer(app); 
-const socketio = new io.Server(server);
+const socketio = new io.Server(server,{
+  cors: {
+    origin: "http://localhost:3001",
+    credentials: true
+},
+});
 
 socketio.on("connection", (socket) => {
   console.log('soketIo connection')
@@ -32,6 +37,22 @@ const HOST = '0.0.0.0';
 
 // App
 console.log('router')
+// const allowCrossDomain = function(req, res, next) {
+//   res.header('Access-Control-Allow-Origin', '*')
+//   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE')
+//   res.header(
+//     'Access-Control-Allow-Headers',
+//     'Content-Type, Authorization, access_token'
+//   )
+//     console.log('cross origin')
+//   // intercept OPTIONS method
+//   if ('OPTIONS' === req.method) {
+//     res.send(200)
+//   } else {
+//     next()
+//   }
+// }
+// app.use(allowCrossDomain)
 app.use(router)
 
   // sequelize.authenticate()
