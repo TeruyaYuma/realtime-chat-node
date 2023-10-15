@@ -16,6 +16,10 @@ const socketio = new io.Server(server,{
 
 socketio.on("connection", (socket) => {
   console.log('soketIo connection')
+
+  socket.on('emit', arg => {
+    console.log(arg)
+  })
 })
 
 // const { Sequelize } = require('sequelize');
